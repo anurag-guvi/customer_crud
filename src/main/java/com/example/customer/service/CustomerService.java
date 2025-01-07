@@ -1,11 +1,12 @@
 package com.example.customer.service;
 
 import com.example.customer.entity.CustomerEntity;
-import com.example.customer.mapping.CustomerMapper;
 import com.example.customer.repo.CustomerRepo;
-import com.example.customer.mapping.CustomerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.example.customer.mapping.CustomerDto;
+import com.example.customer.mapping.CustomerMapper;
+
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -44,7 +45,7 @@ public class CustomerService {
                 .orElseThrow(() -> new NoSuchElementException("Customer not found with id: " + id));
 
         CustomerEntity updatedCustomer = new CustomerEntity.Builder()
-                .id(existingCustomer.getId()) // Keep the existing ID
+                .id(existingCustomer.getId())
                 .name(customerDto.getName())
                 .address(customerDto.getAddress())
                 .salary(customerDto.getSalary())

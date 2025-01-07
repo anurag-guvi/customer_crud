@@ -41,11 +41,12 @@ public class customerControllerTest {
 
     @Test
     void findCustomerById() throws Exception {
-        CustomerEntity customer = new CustomerEntity();
-        customer.setId(1);
-        customer.setName("John Doe");
-        customer.setAddress("123 Main St");
-        customer.setSalary(5000);
+        CustomerEntity customer = new CustomerEntity.Builder()
+                .id(1)
+                .name("John Doe")
+                .address("123 Main St")
+                .salary(5000)
+                .build();
         repo.save(customer);
 
         mockMvc.perform(get("/main/customers/1"))
@@ -53,13 +54,15 @@ public class customerControllerTest {
                 .andExpect(jsonPath("$.name").value("John Doe"));
     }
 
+
     @Test
-    void updateCustomer() throws Exception{
-        CustomerEntity customer = new CustomerEntity();
-        customer.setId(1);
-        customer.setName("John Doe");
-        customer.setAddress("123 Main St");
-        customer.setSalary(5000);
+    void updateCustomer() throws Exception {
+        CustomerEntity customer = new CustomerEntity.Builder()
+                .id(1)
+                .name("John Doe")
+                .address("123 Main St")
+                .salary(5000)
+                .build();
         repo.save(customer);
 
         String updatedJson = "{\"name\": \"Jane Doe\", \"address\": \"456 Avenue\", \"salary\": 6000}";
@@ -71,15 +74,17 @@ public class customerControllerTest {
     }
 
     @Test
-    void deleteCustomer() throws Exception{
-        CustomerEntity customer = new CustomerEntity();
-        customer.setId(1);
-        customer.setName("John Doe");
-        customer.setAddress("123 Street");
-        customer.setSalary(5000);
+    void deleteCustomer() throws Exception {
+        CustomerEntity customer = new CustomerEntity.Builder()
+                .id(1)
+                .name("John Doe")
+                .address("123 Street")
+                .salary(5000)
+                .build();
         repo.save(customer);
 
         mockMvc.perform(delete("/main/customers/1"))
                 .andExpect(status().isNoContent());
     }
+
 }

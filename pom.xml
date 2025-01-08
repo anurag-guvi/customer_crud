@@ -39,8 +39,8 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
 			<version>8.0.33</version>
 		</dependency>
 
@@ -68,8 +68,6 @@
 		<version>1.6.3</version>
 		<scope>provided</scope>
 	</dependency>
-
-
 	</dependencies>
 
 	<build>
@@ -88,7 +86,7 @@
 						<image>mcr.microsoft.com/java/jdk:17-zulu-alpine</image>
 					</from>
 					<to>
-						<image>docker.io/anuragpatil05524/crudcustomer:1.0</image>
+						<image>docker.io/anuragpatil05524/crudcustomer:1.2</image>
 						<auth>
 							<username>anuragpatil05524</username>
 							<password>Saanvi@2022</password>
@@ -96,10 +94,6 @@
 					</to>
 				</configuration>
 			</plugin>
-
 		</plugins>
-
-
 	</build>
-
 </project>

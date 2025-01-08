@@ -3,7 +3,6 @@ package com.example.customer.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Builder;
 import lombok.Getter;
 
 @Getter
@@ -16,6 +15,10 @@ public class CustomerEntity {
     private String name;
     private String address;
     private Integer salary;
+
+    // Default constructor required by JPA
+    protected CustomerEntity() {
+    }
 
     private CustomerEntity(Builder builder) {
         this.id = builder.id;

@@ -24,7 +24,8 @@ WORKDIR /app
 COPY --from=build /app/target/customer-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose the application port (this is the default Spring Boot port)
-EXPOSE 8080
+ENV PORT=1123
+EXPOSE $PORT
 
 # Command to run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar", "--server.port=${PORT}"]
